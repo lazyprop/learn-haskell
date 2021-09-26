@@ -1,8 +1,8 @@
 import random
 import string
 
-tests = 1
-n = 25
+tests = 10
+n = 1000
 
 print(tests)
 for _ in range(tests*2):

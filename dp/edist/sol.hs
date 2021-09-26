@@ -21,13 +21,13 @@ lazy a b = d n m
     d i 0 = i
     d 0 j = j
     d i j
-      | (a' ! i) == (b' ! j) = ds ! (i - 1, j - 1)
-      | otherwise = minimum [ d (i - 1) j         + 1
-                            , d i (j - 1)         + 1
-                            , d (i - 1) (j - 1)   + 1
+      | (a' ! i) == (b' ! j) = dp ! (i - 1, j - 1)
+      | otherwise = minimum [ dp ! (i - 1, j)     + 1
+                            , dp ! (i, j- 1)      + 1
+                            , dp ! (i - 1, j - 1) + 1
                             ]
 
-    ds = listArray bounds [d i j | (i, j) <- range bounds]
+    dp = listArray bounds [d i j | (i, j) <- range bounds]
     bounds = ((0, 0), (n, m))
 
 loop 0 _ = return ()

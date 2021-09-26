@@ -11,4 +11,5 @@ fib' max = go max
     go n = fibs ! (n - 1) + fibs ! (n - 2)
     fibs = listArray (0, max) [go x | x <- [0..max]]
 
-squares n = listArray (0, n) [x^2 | x <- [0..n]]
+main = do
+  print (fib 10000)
