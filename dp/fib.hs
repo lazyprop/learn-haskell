@@ -12,4 +12,5 @@ fib' max = go max
     fibs = listArray (0, max) [go x | x <- [0..max]]
 
 main = do
-  print (fib 10000)
+print (fib 10000)
+
