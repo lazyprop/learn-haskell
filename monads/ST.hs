@@ -1,4 +1,4 @@
-module State (State, ST(S), app) where
+module ST (State, ST(S), app) where
 
 type State = Int
 newtype ST a = S (State -> (a, State))
@@ -26,4 +26,3 @@ instance Monad ST where
     st >>= f = S (\s ->
         let (x, s') = app st s
          in app (f x) s')
-
